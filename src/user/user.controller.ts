@@ -16,7 +16,6 @@ import { Request, Response } from 'express';
 import { User } from '@prisma/client';
 import { AuthGuard } from 'src/guards/auth/auth.guard';
 import { RemovePasswordInterceptor } from 'src/interceptors/remove-password/remove-password.interceptor';
-import SignUpDto from './dto/SignUp.dto';
 
 @Controller('user')
 export class UserController {
@@ -24,7 +23,7 @@ export class UserController {
 
   @Post('auth/sign-up')
   async signUp(
-    @Body() newUser: SignUpDto,
+    @Body() newUser: SignInDto,
     @Res() res: Response,
   ): Promise<void> {
     try {
